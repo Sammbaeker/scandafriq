@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Sam Baker",
+    "role": "Co-Founder — Marketing, Growth & Campus Partnerships",
+    "bio": "Sam brings the Malmö–Lagos bridge to life in his own career. With an MSc in Media Technology from Malmö University and an MSc in Mass Communication from the University of Lagos, he has spent seven-plus years running performance marketing for B2B and consumer brands across Google Ads, Meta, and LinkedIn, with deep fluency in GA4-driven funnel analysis and conversion testing. He currently works in internal communications and digital channel strategy at Inter IKEA Group in Malmö, and previously built campaign operations for clients including Safeture and Lockheed Martin. He also built RymakeAI, a tool for automating ad-creative production. At ScandAfriq, Sam leads how the service gets in front of students and how it builds trust with campus administrations — the audience and partnership side of the launch.",
+    "photo": "sam_baker.png",
+    "linkedin": "https://www.linkedin.com/in/sam-baker-o07/"
+  },
+  {
+    "name": "Jamiu Olalekan Olaide",
+    "role": "Co-Founder — Cloud Infrastructure & Systems Security",
+    "bio": "Jamiu is an IT Security Specialist with five years at Orange CyberDefense, where he leads enterprise onboarding and deployment of Microsoft Sentinel, Defender, and XDR platforms, and has worked as a SOC analyst and Splunk consultant. His technical base spans Azure, AWS, and GCP, Kubernetes and Docker, and infrastructure automation with Terraform and Ansible. He holds an MSc in Computer Science from Blekinge Institute of Technology, alongside earlier degrees in information communication and computer engineering from Kharkiv National University of Radio Electronics. At ScandAfriq, Jamiu is responsible for the security and reliability of the systems behind the rider app and fleet management — access control, monitoring, and the cloud backbone the service will run on.",
+    "photo": "jamiu.png",
+    "linkedin": "https://www.linkedin.com/in/jamiu-olalekan-olaide-b31834192/"
+  },
+  {
+    "name": "Michael Edunpeters",
+    "role": "Co-Founder — Financial Governance & Compliance",
+    "bio": "Michael is a Certified Global Sanctions Specialist (CGSS) currently working as a Senior AML Officer at Danske Bank in Lithuania, where he investigates cross-border payments, conducts customer due diligence, and manages sanctions-screening and risk-categorisation processes for individual and corporate clients. He holds an MSc in Business and Management from University College Dublin and previously spent a decade in financial and administrative roles at South Dublin County Council, reconciling accounts and auditing contracts. At ScandAfriq, Michael's focus is financial governance: structuring how rider payments, grant funds, and partner contracts are handled so the venture stays compliant as it moves from pilot to multi-campus operation, and managing the due-diligence relationships with banks, grant bodies, and university finance offices.",
+    "photo": "michael.png",
+    "linkedin": ""
+  }
+]

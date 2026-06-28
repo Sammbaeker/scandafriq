@@ -1,0 +1,78 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'About', href: '/about/' },
+  { label: 'How It Works', href: '/how-it-works/' },
+  { label: 'Impact', href: '/impact/' },
+  { label: 'Team', href: '/team/' },
+  { label: 'Get Involved', href: '/get-involved/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+
+<footer class="bg-primary-dark text-white/90">
+  <div class="content-wrapper px-6 py-16 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+      <!-- Brand column -->
+      <div>
+        <a href="/" class="flex items-center gap-3 mb-4" aria-label="ScandAfriq home">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary">
+            <img src="/logo.svg" alt="" width="24" height="24" class="w-6 h-6" />
+          </span>
+          <span class="font-heading font-bold text-xl text-white">
+            ScandAfriq
+          </span>
+        </a>
+        <p class="text-white/70 text-sm leading-relaxed max-w-xs">
+          Bridging Scandinavian innovation and West African mobility.
+          Solar-powered e-scooter sharing for Nigerian university campuses.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/50 mb-4">
+          Pages
+        </h2>
+        <ul class="space-y-2">
+          {quickLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-white/70 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact info -->
+      <div>
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/50 mb-4">
+          Get in Touch
+        </h2>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>
+            <a
+              href="mailto:info@scandafriq.se"
+              class="hover:text-white transition-colors"
+            >
+              info@scandafriq.se
+            </a>
+          </li>
+          <li>Malmö, Sweden</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">
+      <p>&copy; {currentYear} ScandAfriq. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

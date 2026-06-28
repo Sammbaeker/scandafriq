@@ -1,0 +1,27 @@
+---
+interface Props {
+  heading: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const { heading, ctaLabel, ctaHref } = Astro.props;
+---
+
+<section class="bg-primary" aria-label="Call to action">
+  <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 text-center">
+    <p class="font-heading font-bold text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">
+      {heading}
+    </p>
+    <a
+      href={ctaHref}
+      class="inline-flex items-center justify-center px-8 py-3.5
+             bg-accent text-white font-heading font-medium
+             rounded-md transition-colors duration-200
+             hover:bg-accent-dark focus-visible:ring-2 focus-visible:ring-accent
+             focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</section>

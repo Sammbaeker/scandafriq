@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <!-- Circle -->
+  <circle cx="250" cy="250" r="150" stroke="white" stroke-width="16"/>
+  <!-- Stem — from bottom of circle to top leaf cluster -->
+  <line x1="250" y1="390" x2="250" y2="185" stroke="white" stroke-width="12" stroke-linecap="round"/>
+  <!-- Top bud / seed — pointed oval -->
+  <path d="M250 140 Q238 165 250 190 Q262 165 250 140Z" stroke="white" stroke-width="8" fill="none" stroke-linejoin="round"/>
+  <!-- Upper leaf pair -->
+  <path d="M250 220 C230 210 205 200 200 180" stroke="white" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M200 180 C210 195 230 210 250 220" stroke="white" stroke-width="0" fill="none"/>
+  <path d="M250 220 C270 210 295 200 300 180" stroke="white" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Lower leaf pair -->
+  <path d="M250 275 C225 260 195 248 185 225" stroke="white" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M250 275 C275 260 305 248 315 225" stroke="white" stroke-width="10" stroke-linecap="round" fill="none"/>
+</svg>

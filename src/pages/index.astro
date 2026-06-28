@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatStrip from '../components/StatStrip.astro';
+import TeamCard from '../components/TeamCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+import samPhoto from '../assets/team/sam_baker.png';
+import jamiuPhoto from '../assets/team/jamiu.png';
+import michaelPhoto from '../assets/team/michael.png';
+
+import teamData from '../content/team.json';
+
+const photos = [samPhoto, jamiuPhoto, michaelPhoto];
+
+const homeStats = [
+  { value: '273', label: 'universities in Nigeria, ~2.2M students' },
+  { value: '13M', label: 'electric vehicles targeted by Nigeria by 2050' },
+  { value: '30%', label: 'of Malmö city trips already by bike' },
+];
+
+const steps = [
+  {
+    icon: '📍',
+    title: 'Find a scooter',
+    desc: 'Open the app, see nearby scooters on a campus map.',
+  },
+  {
+    icon: '🔓',
+    title: 'Unlock and ride',
+    desc: 'Scan a QR code, ride within the geofenced campus.',
+  },
+  {
+    icon: '🅿️',
+    title: 'Park and pay',
+    desc: 'End at an approved spot, pay at a student-friendly rate.',
+  },
+  {
+    icon: '☀️',
+    title: 'Charge, sustainably',
+    desc: 'Scooters return to solar-powered charging stations.',
+  },
+];
+---
+
+<BaseLayout
+  title="ScandAfriq — Solar-Powered E-Scooter Sharing for Nigerian Campuses"
+  description="ScandAfriq is building solar-powered electric scooter sharing for university campuses in Nigeria, bridging Scandinavian green-mobility know-how with West African market insight."
+>
+
+  <!-- Hero -->
+  <Hero
+    headline="Bridging Scandinavian innovation and West African mobility."
+    subhead="ScandAfriq is building solar-powered electric scooter sharing for university campuses in Nigeria — sustainable, affordable, and built with the people who'll use it."
+    primaryCta={{ label: 'See how it works', href: '/how-it-works/' }}
+    secondaryCta={{ label: 'Support the pilot', href: '/get-involved/' }}
+    statusLine="Currently at idea stage, seeking pilot partners and funding."
+  />
+
+  <!-- Three-stat strip -->
+  <StatStrip stats={homeStats} />
+
+  <!-- Problem → Solution short version -->
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <div>
+          <h2 class="font-heading font-bold text-2xl text-ink mb-4">The Problem</h2>
+          <p class="text-ink/80 leading-relaxed mb-4">
+            Nigerian university campuses are vast — some span thousands of hectares — and current transport
+            options cost students time, money, and safety. Walking long distances between lectures, or relying
+            on crowded fuel-powered shuttles, is the daily reality. Fuel subsidy removal has pushed costs even higher.
+          </p>
+          <a href="/about/" class="text-accent font-medium hover:underline transition-colors">
+            Read the full case →
+          </a>
+        </div>
+        <div>
+          <h2 class="font-heading font-bold text-2xl text-ink mb-4">The Solution</h2>
+          <p class="text-ink/80 leading-relaxed mb-4">
+            A campus-based electric scooter-sharing service: e-scooters, solar-powered charging stations,
+            and a simple app to unlock, ride, and pay. Geofenced to campus for safety. Priced for student
+            budgets, not commercial rates.
+          </p>
+          <a href="/about/" class="text-accent font-medium hover:underline transition-colors">
+            Read the full case →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works short version -->
+  <section class="section-padding bg-sand">
+    <div class="content-wrapper">
+      <h2 class="font-heading font-bold text-2xl text-ink mb-10 text-center">How It Works</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {steps.map((step, i) => (
+          <div class="text-center">
+            <span class="text-3xl mb-3 block" aria-hidden="true">{step.icon}</span>
+            <h3 class="font-heading font-bold text-lg text-ink mb-2">
+              <span class="text-accent mr-1">{i + 1}.</span>{step.title}
+            </h3>
+            <p class="text-sm text-grey-600 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/how-it-works/" class="btn-secondary">
+          Learn more
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team teaser -->
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <h2 class="font-heading font-bold text-2xl text-ink mb-10 text-center">The Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {teamData.map((member, i) => (
+          <TeamCard
+            name={member.name}
+            role={member.role}
+            bio={member.bio}
+            photo={photos[i]}
+            linkedin={member.linkedin || undefined}
+            compact={true}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/team/" class="text-accent font-medium hover:underline transition-colors">
+          Meet the full team →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA band -->
+  <CtaBand
+    heading="We're looking for pilot universities, funders, and mobility partners."
+    ctaLabel="Get involved"
+    ctaHref="/get-involved/"
+  />
+
+</BaseLayout>

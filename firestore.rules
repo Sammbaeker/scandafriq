@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // All client access denied.
+    // The contact form posts to a Cloud Function (Admin SDK),
+    // which bypasses these rules entirely.
+    // No client — authenticated or not — should read, write,
+    // update, or delete any document.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

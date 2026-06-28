@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatStrip from '../components/StatStrip.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const impactStats = [
+  { value: '~75%', label: 'CO₂ reduction per trip vs. petrol shuttles' },
+  { value: '25–40 min', label: 'saved per student per day vs. walking' },
+  { value: '~60%', label: 'potential transport cost savings per term' },
+  { value: '8–15', label: 'local jobs created per campus deployment' },
+];
+
+const sdgs = [
+  {
+    number: 13,
+    name: 'Climate Action',
+    desc: 'Every e-scooter trip replaces a petrol-powered one, cutting campus transport emissions at source.',
+  },
+  {
+    number: 10,
+    name: 'Reduced Inequalities',
+    desc: 'Affordable, accessible transport removes a barrier that disproportionately affects students from lower-income backgrounds.',
+  },
+  {
+    number: 11,
+    name: 'Sustainable Cities and Communities',
+    desc: 'Solar-charged shared mobility demonstrates a replicable model for cleaner urban transport across West Africa.',
+  },
+  {
+    number: 8,
+    name: 'Decent Work and Economic Growth',
+    desc: 'Each campus deployment creates local operations and maintenance jobs filled by students.',
+  },
+];
+---
+
+<BaseLayout
+  title="Impact & Sustainability — ScandAfriq"
+  description="ScandAfriq's projected impact: CO₂ reduction, student time and cost savings, local job creation, and alignment with UN Sustainable Development Goals."
+>
+
+  <!-- Page heading -->
+  <section class="bg-sand px-6 py-16 md:px-8 md:py-20">
+    <div class="content-wrapper text-center">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-4">
+        Impact &amp; Sustainability
+      </h1>
+      <p class="text-grey-600 max-w-2xl mx-auto">
+        The numbers behind the mission — what each campus deployment is projected to deliver.
+      </p>
+    </div>
+  </section>
+
+  <!-- Impact metrics -->
+  <StatStrip stats={impactStats} />
+
+  <section class="px-6 py-8 md:px-8 bg-surface">
+    <div class="content-wrapper">
+      <p class="text-grey-600 text-sm text-center max-w-2xl mx-auto">
+        Estimates based on industry benchmarks for e-scooter fleet operations,
+        Nigerian university campus distances, and post-subsidy-removal transport
+        cost data. Actual figures will be validated during pilot.
+      </p>
+    </div>
+  </section>
+
+  <!-- UN SDG Alignment -->
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-ink mb-4 text-center">
+        UN Sustainable Development Goals
+      </h2>
+      <p class="text-grey-600 text-center mb-12 max-w-2xl mx-auto">
+        ScandAfriq's model directly supports four of the UN's Sustainable Development Goals.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        {sdgs.map(sdg => (
+          <div class="flex gap-4 items-start">
+            <span class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-sm flex items-center justify-center">
+              {sdg.number}
+            </span>
+            <div>
+              <h3 class="font-heading font-bold text-base text-ink mb-1">{sdg.name}</h3>
+              <p class="text-sm text-grey-600 leading-relaxed">{sdg.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Living Lab -->
+  <section class="section-padding bg-sand">
+    <div class="content-wrapper">
+      <div class="max-w-prose mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-ink mb-6">
+          Every Campus, a Living Lab
+        </h2>
+        <div class="prose-content">
+          <p>
+            Each campus deployment isn't just a transport service — it's a visible proof
+            point for solar-powered mobility. Students, faculty, and visitors see electric
+            vehicles charging from the sun every day.
+          </p>
+          <p>
+            The data from each campus feeds back into better fleet sizing, better charging
+            schedules, and a stronger case for the next university partner. This is
+            infrastructure that teaches by existing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CtaBand
+    heading="Help us measure what matters."
+    ctaLabel="Support the pilot"
+    ctaHref="/get-involved/"
+  />
+
+</BaseLayout>

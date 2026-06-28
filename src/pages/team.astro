@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TeamCard from '../components/TeamCard.astro';
+import teamData from '../content/team.json';
+
+import samPhoto from '../assets/team/sam_baker.png';
+import jamiuPhoto from '../assets/team/jamiu.png';
+import michaelPhoto from '../assets/team/michael.png';
+
+const photos = [samPhoto, jamiuPhoto, michaelPhoto];
+---
+
+<BaseLayout
+  title="Team — ScandAfriq"
+  description="Meet the ScandAfriq team — the people building solar-powered e-scooter sharing for Nigerian universities."
+>
+
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-6 text-center">
+        Meet the Team
+      </h1>
+      <p class="text-grey-600 text-center max-w-2xl mx-auto mb-14">
+        ScandAfriq is a Malmö-founded social enterprise building sustainable,
+        solar-charged e-scooter sharing networks for university campuses in Nigeria,
+        bridging Scandinavian green-mobility know-how with West African market insight.
+        Meet the people behind it.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {teamData.map((member, i) => (
+          <TeamCard
+            name={member.name}
+            role={member.role}
+            bio={member.bio}
+            photo={photos[i]}
+            linkedin={member.linkedin || undefined}
+          />
+        ))}
+      </div>
+
+      <!--
+        CONTENT REVIEW: The team's collective background (marketing,
+        cybersecurity/cloud, financial compliance) does not yet cover
+        engineering, hardware, or mobility operations — the same gap flagged
+        in the About Us PDF. Consider adding an advisor or open role that
+        covers these areas before publishing. Do not imply coverage that
+        doesn't exist by writing vaguer titles.
+      -->
+
+    </div>
+  </section>
+
+</BaseLayout>

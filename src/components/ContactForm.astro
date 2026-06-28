@@ -1,0 +1,192 @@
+---
+/*
+ * ContactForm — submits to the Firebase Cloud Function at /api/submitContactForm.
+ *
+ * In production (Firebase Hosting), the rewrite in firebase.json proxies
+ * /api/submitContactForm to the Cloud Function. In local dev with the
+ * Firebase emulator, the form posts to the emulator's function URL instead.
+ *
+ * See docs/06-contact-form-firebase.md for the backend spec.
+ */
+---
+
+<form
+  id="contact-form"
+  method="POST"
+  action="/api/submitContactForm"
+  class="space-y-6"
+  aria-label="Contact form"
+>
+
+  <div>
+    <label for="contact-name" class="block text-sm font-medium text-ink mb-1.5">
+      Name <span class="text-accent" aria-label="required">*</span>
+    </label>
+    <input
+      type="text"
+      id="contact-name"
+      name="name"
+      required
+      autocomplete="name"
+      class="w-full px-4 py-3 rounded-md border border-grey-200 bg-surface text-ink
+             text-sm placeholder:text-grey-600
+             focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none
+             transition-colors"
+      placeholder="Your name"
+    />
+  </div>
+
+  <div>
+    <label for="contact-email" class="block text-sm font-medium text-ink mb-1.5">
+      Email <span class="text-accent" aria-label="required">*</span>
+    </label>
+    <input
+      type="email"
+      id="contact-email"
+      name="email"
+      required
+      autocomplete="email"
+      class="w-full px-4 py-3 rounded-md border border-grey-200 bg-surface text-ink
+             text-sm placeholder:text-grey-600
+             focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none
+             transition-colors"
+      placeholder="you@example.com"
+    />
+  </div>
+
+  <div>
+    <label for="contact-audience" class="block text-sm font-medium text-ink mb-1.5">
+      I'm reaching out as a… <span class="text-accent" aria-label="required">*</span>
+    </label>
+    <select
+      id="contact-audience"
+      name="audience"
+      required
+      class="w-full px-4 py-3 rounded-md border border-grey-200 bg-surface text-ink
+             text-sm
+             focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none
+             transition-colors"
+    >
+      <option value="" disabled selected>Select one…</option>
+      <option value="funder">Funder or grant body</option>
+      <option value="university">University partner</option>
+      <option value="mobility-energy">Mobility, energy, or mentorship partner</option>
+      <option value="other">Other / general enquiry</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="contact-message" class="block text-sm font-medium text-ink mb-1.5">
+      Message <span class="text-accent" aria-label="required">*</span>
+    </label>
+    <textarea
+      id="contact-message"
+      name="message"
+      required
+      rows="5"
+      maxlength="5000"
+      class="w-full px-4 py-3 rounded-md border border-grey-200 bg-surface text-ink
+             text-sm placeholder:text-grey-600 resize-y
+             focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none
+             transition-colors"
+      placeholder="Tell us what you're interested in…"
+    ></textarea>
+  </div>
+
+  <!-- Honeypot — hidden from real users, bots fill it in -->
+  <div class="sr-only" aria-hidden="true">
+    <label for="contact-website">Website</label>
+    <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <button
+    type="submit"
+    id="contact-submit"
+    class="btn-primary w-full sm:w-auto"
+  >
+    Send message
+  </button>
+
+  <!-- Feedback messages -->
+  <div id="form-success" class="hidden rounded-md bg-primary/10 border border-primary/30 p-4">
+    <p class="text-sm text-primary font-medium">
+      ✓ Message sent — thank you! We'll get back to you within 2–3 business days.
+    </p>
+  </div>
+
+  <div id="form-error" class="hidden rounded-md bg-red-50 border border-red-200 p-4">
+    <p class="text-sm text-red-700 font-medium" id="form-error-text">
+      Something went wrong. Please try again.
+    </p>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const successEl = document.getElementById('form-success');
+  const errorEl = document.getElementById('form-error');
+  const errorText = document.getElementById('form-error-text');
+  const honeypot = document.getElementById('contact-website') as HTMLInputElement | null;
+
+  if (form && submitBtn && successEl && errorEl && errorText) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot check — if the hidden field is filled, silently "succeed"
+      if (honeypot && honeypot.value) {
+        successEl.classList.remove('hidden');
+        errorEl.classList.add('hidden');
+        form.reset();
+        return;
+      }
+
+      // Clear previous feedback
+      successEl.classList.add('hidden');
+      errorEl.classList.add('hidden');
+
+      // Disable button + show loading state
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+      // Collect form data
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        audience: formData.get('audience'),
+        message: formData.get('message'),
+      };
+
+      try {
+        const res = await fetch('/api/submitContactForm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          successEl.classList.remove('hidden');
+          form.reset();
+          // Keep submit button disabled after success
+          submitBtn.textContent = 'Sent ✓';
+        } else {
+          const data = await res.json().catch(() => ({}));
+          errorText.textContent = data.error || 'Something went wrong. Please try again.';
+          errorEl.classList.remove('hidden');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        }
+      } catch {
+        errorText.textContent = 'Network error — check your connection and try again.';
+        errorEl.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      }
+    });
+  }
+</script>

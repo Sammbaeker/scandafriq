@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Visible focus states — replaces defaults with brand-consistent ring */
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Remove default focus outline only when :focus-visible is supported */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-section md:px-8 lg:py-section-lg;
+  }
+
+  .content-wrapper {
+    @apply mx-auto max-w-content;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           bg-accent text-white font-heading font-medium
+           rounded-md transition-colors duration-200
+           focus-visible:ring-2 focus-visible:ring-accent
+           focus-visible:ring-offset-2;
+  }
+
+  .btn-primary:hover {
+    background-color: theme('colors.accent.dark');
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           border-2 border-primary text-primary font-heading font-medium
+           rounded-md transition-colors duration-200
+           hover:bg-primary hover:text-white focus-visible:ring-2
+           focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  .prose-content {
+    @apply max-w-prose text-base leading-relaxed text-ink;
+  }
+
+  .prose-content p {
+    @apply mb-5;
+  }
+
+  .prose-content h2 {
+    @apply text-2xl font-heading font-bold mt-12 mb-4;
+  }
+
+  .prose-content h3 {
+    @apply text-xl font-heading font-bold mt-8 mb-3;
+  }
+}

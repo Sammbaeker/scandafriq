@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<BaseLayout
+  title="Get Involved — ScandAfriq"
+  description="Support ScandAfriq's mission — whether you're a funder, university partner, or mobility/energy industry expert."
+>
+
+  <section class="section-padding bg-sand">
+    <div class="content-wrapper">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-6 text-center">
+        Get Involved
+      </h1>
+      <p class="text-grey-600 text-center max-w-2xl mx-auto">
+        ScandAfriq is actively seeking partners to bring solar-powered e-scooter
+        sharing to Nigerian university campuses. Here's how different stakeholders
+        can be part of this.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-12 md:px-8 md:py-16 bg-surface">
+    <div class="content-wrapper max-w-3xl space-y-10">
+
+      <!-- Block 1: Funders -->
+      <article class="bg-surface rounded-xl border border-grey-200 p-8 shadow-sm">
+        <h2 class="font-heading font-bold text-xl text-ink mb-4">
+          Funders &amp; Grant Bodies
+        </h2>
+        <p class="text-ink/80 leading-relaxed mb-4">
+          We're seeking seed funding for pilot hardware — an initial e-scooter fleet —
+          and solar charging infrastructure for our first campus deployment. We commit
+          to transparent impact reporting, including an annual impact report with
+          ridership, emissions, cost savings, and employment data, so funders can track
+          exactly what their support achieves.
+        </p>
+        <a href="/contact/" class="btn-primary">Talk to us about funding</a>
+      </article>
+
+      <!-- Block 2: University partners -->
+      <article class="bg-surface rounded-xl border border-grey-200 p-8 shadow-sm">
+        <h2 class="font-heading font-bold text-xl text-ink mb-4">
+          University Partners
+        </h2>
+        <p class="text-ink/80 leading-relaxed mb-4">
+          We're inviting forward-thinking Nigerian universities to pilot e-scooter
+          sharing on campus. Your institution provides campus access, space for
+          charging stations, and official endorsement — we provide the fleet, the app,
+          the local ops team, and all maintenance.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="/contact/" class="btn-primary">Propose a campus pilot</a>
+          <a href="/how-it-works/" class="text-accent font-medium hover:underline transition-colors">
+            See the partnership model →
+          </a>
+        </div>
+      </article>
+
+      <!-- Block 3: Mobility/energy partners -->
+      <article class="bg-surface rounded-xl border border-grey-200 p-8 shadow-sm">
+        <h2 class="font-heading font-bold text-xl text-ink mb-4">
+          Mobility, Energy &amp; Mentorship Partners
+        </h2>
+        <p class="text-ink/80 leading-relaxed mb-4">
+          We're looking to connect with solar and energy companies for charging
+          infrastructure, telecom providers for IoT connectivity, accelerators and
+          incubators in both Malmö and Lagos, and experienced operators in
+          micromobility or fleet management who can advise on scaling.
+        </p>
+        <a href="/contact/" class="btn-primary">Reach out to partner</a>
+      </article>
+
+    </div>
+  </section>
+
+  <CtaBand
+    heading="We're looking for pilot universities, funders, and mobility partners."
+    ctaLabel="Contact us"
+    ctaHref="/contact/"
+  />
+
+</BaseLayout>

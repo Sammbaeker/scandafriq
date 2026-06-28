@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="How It Works — ScandAfriq"
+  description="See how ScandAfriq's solar-powered e-scooter sharing works — from finding a scooter to sustainable charging on campus."
+>
+
+  <!-- Steps -->
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-12 text-center">
+        How It Works
+      </h1>
+
+      <h2 class="sr-only">Four steps to ride</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+        {[
+          {
+            num: '1',
+            title: 'Find a scooter',
+            desc: 'Open the app, see nearby scooters on a campus map. Each scooter shows its battery level and distance from you.',
+          },
+          {
+            num: '2',
+            title: 'Unlock and ride',
+            desc: 'Scan a QR code on the scooter to unlock it, then ride anywhere within the geofenced campus perimeter. The scooter automatically slows and stops at the boundary.',
+          },
+          {
+            num: '3',
+            title: 'Park and pay',
+            desc: 'End the ride at an approved parking spot. Payment is automatic at a student-friendly rate — no cash needed, just your app balance.',
+          },
+          {
+            num: '4',
+            title: 'Charge, sustainably',
+            desc: 'Scooters return to solar-powered charging stations across campus. No grid electricity, no fuel — just sunlight.',
+          },
+        ].map(step => (
+          <div class="flex gap-5 p-6 rounded-xl bg-sand">
+            <span class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-xl flex items-center justify-center">
+              {step.num}
+            </span>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-ink mb-2">{step.title}</h3>
+              <p class="text-sm text-grey-600 leading-relaxed">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety callout -->
+  <section class="bg-sand">
+    <div class="content-wrapper px-6 py-12 md:px-8 md:py-16">
+      <div class="max-w-3xl mx-auto border-l-4 border-accent bg-surface rounded-r-xl p-8">
+        <h2 class="font-heading font-bold text-2xl text-ink mb-6">Safety First</h2>
+        <ul class="space-y-4">
+          {[
+            'Helmets provided at every charging station.',
+            'In-app safety tutorial required before your first ride.',
+            'Geofenced to campus — scooters slow and stop at the boundary.',
+            'Campus security and administration partnership for incident response.',
+          ].map(item => (
+            <li class="flex items-start gap-3 text-ink/80">
+              <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- University partner section -->
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-ink mb-4 text-center">
+        For University Partners
+      </h2>
+      <p class="text-center text-grey-600 mb-12 max-w-2xl mx-auto">
+        Here's how the partnership works — what each side brings to the table.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- University provides -->
+        <div class="bg-surface rounded-xl border border-grey-200 p-8 shadow-sm">
+          <h3 class="font-heading font-bold text-lg text-ink mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </span>
+            What the university provides
+          </h3>
+          <ul class="space-y-3">
+            {[
+              'Campus access and designated scooter zones',
+              'Space for solar charging stations',
+              'Official endorsement and co-branding',
+              'Student communication channels',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-ink/80 text-sm">
+                <span class="text-primary mt-1">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- ScandAfriq provides -->
+        <div class="bg-surface rounded-xl border border-grey-200 p-8 shadow-sm">
+          <h3 class="font-heading font-bold text-lg text-ink mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </span>
+            What ScandAfriq provides
+          </h3>
+          <ul class="space-y-3">
+            {[
+              'Full e-scooter fleet, maintained and insured',
+              'Rider app with campus-specific geofencing',
+              'Local operations team (student jobs)',
+              'Maintenance, charging logistics, and data reporting',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-ink/80 text-sm">
+                <span class="text-accent mt-1">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/get-involved/" class="btn-primary">
+          Interested in piloting on your campus?
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
