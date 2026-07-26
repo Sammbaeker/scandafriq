@@ -36,8 +36,8 @@ function isActive(href: string): boolean {
           class:list={[
             'font-heading text-sm font-medium transition-colors',
             isActive(link.href)
-              ? 'text-primary'
-              : 'text-ink hover:text-primary',
+              ? 'text-primary nav-link-active'
+              : 'text-ink hover:text-primary nav-link-hover',
           ]}
           aria-current={isActive(link.href) ? 'page' : undefined}
         >
@@ -69,7 +69,8 @@ function isActive(href: string): boolean {
   <!-- Mobile menu panel -->
   <div
     id="mobile-menu"
-    class="lg:hidden hidden border-t border-grey-200 bg-surface"
+    class="lg:hidden border-t border-grey-200 bg-surface"
+    style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;"
     role="navigation"
     aria-label="Mobile navigation"
   >
@@ -104,7 +105,15 @@ function isActive(href: string): boolean {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       toggle.setAttribute('aria-label', expanded ? 'Open navigation menu' : 'Close navigation menu');
-      menu.classList.toggle('hidden');
+
+      if (expanded) {
+        // Collapse
+        menu.style.maxHeight = '0';
+      } else {
+        // Expand
+        menu.style.maxHeight = menu.scrollHeight + 'px';
+      }
+
       iconOpen.classList.toggle('hidden');
       iconClose.classList.toggle('hidden');
     });

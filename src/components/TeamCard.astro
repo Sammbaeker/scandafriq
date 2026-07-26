@@ -13,14 +13,14 @@ interface Props {
 const { name, role, bio, photo, linkedin, compact = false } = Astro.props;
 ---
 
-<article class="bg-surface rounded-xl border border-grey-200 overflow-hidden transition-shadow hover:shadow-md">
+<article class="group bg-surface rounded-xl border border-grey-200 border-t-[3px] border-t-primary overflow-hidden card-hover">
   <div class="aspect-[4/3] overflow-hidden bg-sand">
     <Image
       src={photo}
       alt={`Portrait of ${name}`}
       width={400}
       height={300}
-      class="w-full h-full object-cover object-top"
+      class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
       loading="lazy"
     />
   </div>

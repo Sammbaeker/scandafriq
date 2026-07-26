@@ -10,28 +10,32 @@ interface Props {
 const { headline, subhead, primaryCta, secondaryCta, statusLine } = Astro.props;
 ---
 
-<section class="bg-sand">
-  <div class="content-wrapper px-6 py-section md:px-8 lg:py-section-lg">
+<section class="bg-gradient-hero relative overflow-hidden">
+  <div class="absolute inset-0 bg-dots-pattern opacity-40" aria-hidden="true"></div>
+  <div class="content-wrapper px-6 py-section md:px-8 lg:py-section-lg relative z-10">
     <div class="max-w-3xl">
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-6">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-white mb-6 hero-animate">
         {headline}
       </h1>
-      <p class="text-lg md:text-xl text-ink/80 mb-8 max-w-2xl leading-relaxed">
+      <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed hero-animate hero-animate-delay-1">
         {subhead}
       </p>
-      <div class="flex flex-wrap gap-4 mb-6">
+      <div class="flex flex-wrap gap-4 mb-6 hero-animate hero-animate-delay-2">
         <a href={primaryCta.href} class="btn-primary">
           {primaryCta.label}
         </a>
         {secondaryCta && (
-          <a href={secondaryCta.href} class="btn-secondary">
+          <a
+            href={secondaryCta.href}
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-white/40 text-white font-heading font-medium rounded-md transition-all duration-200 hover:bg-white/10 hover:border-white/60"
+          >
             {secondaryCta.label}
           </a>
         )}
       </div>
       {statusLine && (
-        <p class="text-sm text-grey-600 flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>
+        <p class="text-sm text-white/60 flex items-center gap-2 hero-animate hero-animate-delay-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-accent status-pulse" aria-hidden="true"></span>
           {statusLine}
         </p>
       )}

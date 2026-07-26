@@ -39,13 +39,14 @@ const sdgs = [
   description="ScandAfriq's projected impact: CO₂ reduction, student time and cost savings, local job creation, and alignment with UN Sustainable Development Goals."
 >
 
-  <!-- Page heading -->
-  <section class="bg-sand px-6 py-16 md:px-8 md:py-20">
-    <div class="content-wrapper text-center">
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-4">
+  <!-- Page heading with gradient -->
+  <section class="bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+    <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 relative z-10 text-center">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4 hero-animate">
         Impact &amp; Sustainability
       </h1>
-      <p class="text-grey-600 max-w-2xl mx-auto">
+      <p class="text-white/70 max-w-2xl mx-auto hero-animate-delay-1">
         The numbers behind the mission — what each campus deployment is projected to deliver.
       </p>
     </div>
@@ -56,7 +57,7 @@ const sdgs = [
 
   <section class="px-6 py-8 md:px-8 bg-surface">
     <div class="content-wrapper">
-      <p class="text-grey-600 text-sm text-center max-w-2xl mx-auto">
+      <p class="text-grey-600 text-sm text-center max-w-2xl mx-auto reveal">
         Estimates based on industry benchmarks for e-scooter fleet operations,
         Nigerian university campus distances, and post-subsidy-removal transport
         cost data. Actual figures will be validated during pilot.
@@ -67,17 +68,17 @@ const sdgs = [
   <!-- UN SDG Alignment -->
   <section class="section-padding bg-surface">
     <div class="content-wrapper">
-      <h2 class="font-heading font-bold text-2xl md:text-3xl text-ink mb-4 text-center">
+      <h2 class="font-heading font-bold text-2xl md:text-3xl text-ink mb-4 text-center reveal">
         UN Sustainable Development Goals
       </h2>
-      <p class="text-grey-600 text-center mb-12 max-w-2xl mx-auto">
+      <p class="text-grey-600 text-center mb-12 max-w-2xl mx-auto reveal">
         ScandAfriq's model directly supports four of the UN's Sustainable Development Goals.
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto reveal-stagger">
         {sdgs.map(sdg => (
-          <div class="flex gap-4 items-start">
-            <span class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-sm flex items-center justify-center">
+          <div class="flex gap-4 items-start card-hover p-4 rounded-xl reveal">
+            <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent text-white font-heading font-bold text-sm flex items-center justify-center">
               {sdg.number}
             </span>
             <div>
@@ -93,7 +94,7 @@ const sdgs = [
   <!-- Living Lab -->
   <section class="section-padding bg-sand">
     <div class="content-wrapper">
-      <div class="max-w-prose mx-auto">
+      <div class="max-w-prose mx-auto reveal">
         <h2 class="font-heading font-bold text-2xl text-ink mb-6">
           Every Campus, a Living Lab
         </h2>

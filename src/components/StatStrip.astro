@@ -11,14 +11,15 @@ interface Props {
 const { stats } = Astro.props;
 ---
 
-<section class="bg-primary" aria-label="Key statistics">
-  <div class="content-wrapper px-6 py-12 md:px-8 md:py-16">
+<section class="bg-gradient-primary relative overflow-hidden" aria-label="Key statistics">
+  <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+  <div class="content-wrapper px-6 py-12 md:px-8 md:py-16 relative z-10">
     <div class:list={[
       'grid gap-8 text-center',
       stats.length === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4',
     ]}>
-      {stats.map(stat => (
-        <div>
+      {stats.map((stat, index) => (
+        <div class:list={[index < stats.length - 1 && 'md:border-r md:border-white/15']}>
           <p class="font-heading font-bold text-3xl md:text-4xl text-accent mb-2">
             {stat.value}
           </p>

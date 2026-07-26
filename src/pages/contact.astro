@@ -8,26 +8,40 @@ import ContactForm from '../components/ContactForm.astro';
   description="Get in touch with the ScandAfriq team about funding, partnerships, or general enquiries."
 >
 
-  <section class="section-padding bg-surface">
-    <div class="content-wrapper">
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-12 text-center">
+  <!-- Page header with gradient -->
+  <section class="bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+    <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 relative z-10 text-center">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4 hero-animate">
         Contact Us
       </h1>
+      <p class="text-white/70 max-w-xl mx-auto hero-animate-delay-1">
+        Whether you're a funder, university partner, or just curious — we'd love to hear from you.
+      </p>
+    </div>
+  </section>
 
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
       <div class="grid grid-cols-1 md:grid-cols-5 gap-12 max-w-4xl mx-auto">
 
         <!-- Form (wider) -->
-        <div class="md:col-span-3">
+        <div class="md:col-span-3 reveal">
           <ContactForm />
         </div>
 
         <!-- Contact info sidebar -->
-        <div class="md:col-span-2">
-          <div class="bg-sand rounded-xl p-8">
-            <h2 class="font-heading font-bold text-xl text-ink mb-4">
+        <div class="md:col-span-2 reveal">
+          <div class="bg-sand rounded-xl p-8 border-t-[3px] border-t-primary">
+            <h2 class="font-heading font-bold text-xl text-ink mb-6 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </span>
               Or reach us directly
             </h2>
-            <ul class="space-y-4 text-sm">
+            <ul class="space-y-5 text-sm">
               <li>
                 <span class="block text-grey-600 mb-1">Email</span>
                 <a
@@ -42,9 +56,11 @@ import ContactForm from '../components/ContactForm.astro';
                 <span class="text-ink">Malmö, Sweden</span>
               </li>
             </ul>
-            <p class="text-grey-600 text-xs mt-6 leading-relaxed">
-              We typically respond within 2–3 business days.
-            </p>
+            <div class="mt-6 pt-6 border-t border-grey-200">
+              <p class="text-grey-600 text-xs leading-relaxed">
+                We typically respond within 2–3 business days.
+              </p>
+            </div>
           </div>
         </div>
 

@@ -8,18 +8,15 @@ interface Props {
 const { heading, ctaLabel, ctaHref } = Astro.props;
 ---
 
-<section class="bg-primary" aria-label="Call to action">
-  <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 text-center">
+<section class="bg-gradient-primary relative overflow-hidden" aria-label="Call to action">
+  <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+  <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 text-center relative z-10">
     <p class="font-heading font-bold text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">
       {heading}
     </p>
     <a
       href={ctaHref}
-      class="inline-flex items-center justify-center px-8 py-3.5
-             bg-accent text-white font-heading font-medium
-             rounded-md transition-colors duration-200
-             hover:bg-accent-dark focus-visible:ring-2 focus-visible:ring-accent
-             focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+      class="btn-primary-light"
     >
       {ctaLabel}
     </a>

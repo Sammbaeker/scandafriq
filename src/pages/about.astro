@@ -7,14 +7,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="ScandAfriq is building solar-powered electric scooter sharing for Nigerian university campuses, bridging Scandinavian green-mobility know-how with West African market insight."
 >
 
+  <!-- Page header with gradient -->
+  <section class="bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+    <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 relative z-10">
+      <div class="max-w-prose mx-auto">
+        <h1 class="font-heading font-bold text-3xl md:text-4xl text-white hero-animate">
+          About ScandAfriq
+        </h1>
+      </div>
+    </div>
+  </section>
+
   <section class="section-padding bg-surface">
     <div class="content-wrapper">
       <div class="max-w-prose mx-auto">
-        <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-10">
-          About ScandAfriq
-        </h1>
-
-        <div class="prose-content">
+        <div class="prose-content reveal">
           <h2>The Problem</h2>
           <p>
             Nigerian university campuses are large, and current transport options —
@@ -73,7 +81,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-grey-200">
+        <div class="mt-12 pt-8 border-t border-grey-200 reveal">
           <p class="text-ink/80 mb-4">Ready to be part of this?</p>
           <a href="/get-involved/" class="btn-primary">See how you can get involved</a>
         </div>

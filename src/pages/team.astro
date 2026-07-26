@@ -15,27 +15,34 @@ const photos = [samPhoto, jamiuPhoto, michaelPhoto];
   description="Meet the ScandAfriq team — the people building solar-powered e-scooter sharing for Nigerian universities."
 >
 
-  <section class="section-padding bg-surface">
-    <div class="content-wrapper">
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink mb-6 text-center">
+  <!-- Page header with gradient -->
+  <section class="bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-pattern opacity-30" aria-hidden="true"></div>
+    <div class="content-wrapper px-6 py-16 md:px-8 md:py-20 relative z-10 text-center">
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4 hero-animate">
         Meet the Team
       </h1>
-      <p class="text-grey-600 text-center max-w-2xl mx-auto mb-14">
+      <p class="text-white/70 max-w-2xl mx-auto hero-animate-delay-1">
         ScandAfriq is a Malmö-founded social enterprise building sustainable,
         solar-charged e-scooter sharing networks for university campuses in Nigeria,
         bridging Scandinavian green-mobility know-how with West African market insight.
-        Meet the people behind it.
       </p>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <section class="section-padding bg-surface">
+    <div class="content-wrapper">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto reveal-stagger">
         {teamData.map((member, i) => (
-          <TeamCard
-            name={member.name}
-            role={member.role}
-            bio={member.bio}
-            photo={photos[i]}
-            linkedin={member.linkedin || undefined}
-          />
+          <div class="reveal">
+            <TeamCard
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              photo={photos[i]}
+              linkedin={member.linkedin || undefined}
+            />
+          </div>
         ))}
       </div>
 
